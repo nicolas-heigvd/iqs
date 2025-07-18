@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>GeoLayers Management</h1>
+
+<ul>
+    {% for geolayer in geolayers %}
+        <li><a href="{% url 'iqs:geolayer_detail' geolayer.id %}">{{ geolayer.name }}</a></li>
+    {% empty %}
+        <li>No geolayer found in this project.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

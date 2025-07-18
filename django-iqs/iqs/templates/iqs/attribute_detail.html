@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Attribute details</h1>
+<h2>{{ attribute.name }}</h2>
+<h3>Available fields:</h3>
+
+<ul>
+    {% for field, value in fields.items %}
+        <li>{{ field|safe|capfirst }}: {{ value|safe }}</a></li>
+    {% empty %}
+        <li>No fields found for this attribute.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+

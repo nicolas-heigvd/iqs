@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>GeoLayer details</h1>
+<h2>{{ geolayer.name }}</h2>
+<h3>Available attributes:</h3>
+
+<ul>
+    {% for attribute in geolayer.attributes.all %}
+        <li><a href="{% url 'iqs:attribute_detail' geolayer.id attribute.id %}">{{ attribute.name }}</a>: {{ attribute.type}} </li>
+    {% empty %}
+        <li>No attributes found for this layer.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
