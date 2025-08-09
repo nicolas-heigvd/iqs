@@ -97,7 +97,7 @@ class Attribute(models.Model):
 
     name = models.CharField(
         max_length=1024,
-        unique=True,
+        unique=False,
         null=False,
     )
     geolayer = models.ForeignKey(
